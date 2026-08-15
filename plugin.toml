@@ -15,7 +15,7 @@ keywords = [
     "catgirl",
     "猫娘",
 ]
-version = "0.1.2"
+version = "0.1.3"
 id = "codex_adapter"
 entry = "plugin.plugins.codex_adapter:CodexAdapterPlugin"
 
