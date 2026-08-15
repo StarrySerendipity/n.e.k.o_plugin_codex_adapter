@@ -29,39 +29,40 @@
 
 from __future__ import annotations
 
+import asyncio
 import os
 import time
+from datetime import datetime
 from typing import Any, Optional
 
 from plugin.sdk.plugin import (
+    Err,
     NekoPluginBase,
-    neko_plugin,
-    plugin_entry,
+    Ok,
+    SdkError,
     lifecycle,
     llm_tool,
-    Ok,
-    Err,
-    SdkError,
+    neko_plugin,
+    plugin_entry,
 )
 
-from .models import AdapterConfig, ExecuteResult
+from .codex_home import (
+    prepare_managed_codex_home_async,
+    resolve_effective_codex_home,
+)
 from .errors import (
+    TRANSIENT_UPSTREAM,
     ClassifiedError,
     is_retryable,
-    TRANSIENT_UPSTREAM,
 )
-from datetime import datetime
 from .executor import (
     CodexCLIExecutor,
     build_cli_invocation,
     detect_codex_cli,
 )
+from .models import AdapterConfig, ExecuteResult
 from .parser import CodexOutputParser
 from .session import SessionManager, compute_prompt_signature
-from .codex_home import (
-    prepare_managed_codex_home_async,
-    resolve_effective_codex_home,
-)
 
 
 def _compute_retry_wait_seconds(retry_not_before: str) -> int:

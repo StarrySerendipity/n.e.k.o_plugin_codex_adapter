@@ -191,7 +191,6 @@ def ensure_symlink(target: str, source: str) -> bool:
         False 表示创建失败（如 Windows 无权限）。
     """
     target_path = Path(target)
-    source_path = Path(source)
 
     # 检查现有符号链接
     if target_path.is_symlink():

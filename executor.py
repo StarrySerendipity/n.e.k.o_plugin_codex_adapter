@@ -24,8 +24,8 @@ from typing import Any, Optional
 from .codex_home import build_codex_home_env, resolve_effective_codex_home
 from .errors import (
     CLI_NOT_FOUND,
-    ClassifiedError,
     TIMEOUT,
+    ClassifiedError,
     classify_error,
 )
 from .models import (
@@ -34,7 +34,6 @@ from .models import (
     is_fast_mode_supported,
 )
 from .parser import CodexOutputParser, ParsedCodexStream
-
 
 # ---------------------------------------------------------------------------
 # 跨平台 CLI 检测
